@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">DouBanMovie</string>
+    <string name="search_movie">请输入要搜索的电影</string>
+</resources>
