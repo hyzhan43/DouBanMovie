@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">DouBanMovie</string>
     <string name="search_movie">请输入要搜索的电影</string>
+    <string name="movie">电影</string>
+    <string name="book">图书</string>
+    <string name="navigation_drawer_open">菜单打开</string>
+    <string name="navigation_drawer_close">菜单关闭</string>
 </resources>

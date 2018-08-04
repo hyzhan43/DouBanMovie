@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#3996c5</color>
+    <color name="colorPrimaryDark">#2578a1</color>
+    <color name="colorAccent">#399bc5</color>
 
     <color name="gray">#CECECE</color>
+    <color name="white">#ffffff</color>
+
+    <!--fragment背景-->
+    <color name="fragment_background">#F3F3F3</color>
+    <!--tab 未选中标题颜色  (淡灰)-->
+    <color name="color_translucent_white">#88FFFFFF</color>
 </resources>

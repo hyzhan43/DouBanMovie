@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--侧滑菜单-->
+    <item android:title="分类">
+        <menu>
+            <item
+                android:id="@+id/nav_menu_movie"
+                android:checkable="true"
+                android:checked="true"
+                android:icon="@drawable/dianying"
+                android:title="@string/movie" />
+
+            <item
+                android:id="@+id/nav_menu_book"
+                android:checkable="true"
+                android:icon="@drawable/dianying"
+                android:title="@string/book" />
+        </menu>
+    </item>
+</menu>
