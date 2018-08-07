@@ -1,13 +1,12 @@
 package zqx.rj.com.doubanmovie
 
 import android.support.design.widget.NavigationView
-import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.layout_toolbar.*
 import zqx.rj.com.baselibrary.base.BaseActivity
-import zqx.rj.com.doubanmovie.fragment.MovieFragment
+import zqx.rj.com.doubanmovie.fragment.movie.MovieFragment
 
 class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -41,7 +40,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
      *  设置 toolbar 标题
      */
     fun setToolBar(title: String){
-        toolbar.setTitle(title)
+        toolbar.title = title
         setSupportActionBar(toolbar)
         val supportActionBar = supportActionBar
 

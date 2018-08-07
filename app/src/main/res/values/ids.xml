@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--recycler 封装的 tag 属性-->
+    <item name="tag_recycler_holder" type="id"/>
+</resources>

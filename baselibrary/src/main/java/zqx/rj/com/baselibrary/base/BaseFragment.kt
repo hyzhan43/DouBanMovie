@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.yatoooon.screenadaptation.ScreenAdapterTools
 
 /**
  * 项目名：  DouBanMovie
@@ -30,6 +31,7 @@ abstract class BaseFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         mView = inflater?.inflate(getLayoutResId(), container, false)
+        ScreenAdapterTools.getInstance().loadView(mView)
         return mView
     }
 

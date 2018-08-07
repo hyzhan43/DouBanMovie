@@ -1,4 +1,4 @@
-package zqx.rj.com.doubanmovie.fragment
+package zqx.rj.com.doubanmovie.fragment.book
 
 /**
  * 项目名：  DouBanMovie

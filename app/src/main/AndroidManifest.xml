@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="zqx.rj.com.doubanmovie">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name="zqx.rj.com.baselibrary.base.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -17,7 +20,20 @@
             </intent-filter>
         </activity>
 
+        <meta-data
+            android:name="designwidth"
+            android:value="1080" />
+        <meta-data
+            android:name="designdpi"
+            android:value="480" />
+        <meta-data
+            android:name="fontsize"
+            android:value="1.0" />
+        <meta-data
+            android:name="unit"
+            android:value="dp" />
 
+        <activity android:name=".activities.MoviesDetailActivity"></activity>
     </application>
 
 </manifest>

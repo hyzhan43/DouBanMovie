@@ -3,6 +3,7 @@ package zqx.rj.com.baselibrary.base
 import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.yatoooon.screenadaptation.ScreenAdapterTools
 
 /**
  * 项目名：  DouBanMovie
@@ -20,6 +21,7 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(getContentViewResId())
+        //ScreenAdapterTools.getInstance().loadView(window.decorView);
         mContext = this
         initIntentData()
         initView()

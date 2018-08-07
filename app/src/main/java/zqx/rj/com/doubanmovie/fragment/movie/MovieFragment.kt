@@ -1,11 +1,9 @@
-package zqx.rj.com.doubanmovie.fragment
+package zqx.rj.com.doubanmovie.fragment.movie
 
-import android.support.design.widget.TabLayout.MODE_SCROLLABLE
 import kotlinx.android.synthetic.main.frag_movie_main.*
 import zqx.rj.com.baselibrary.base.BaseFragment
 import zqx.rj.com.doubanmovie.R
 import zqx.rj.com.doubanmovie.adapter.MovieTabAdapter
-import zqx.rj.com.doubanmovie.fragment.movie.TheatersFragment
 
 /**
  * 项目名：  DouBanMovie
@@ -16,6 +14,16 @@ import zqx.rj.com.doubanmovie.fragment.movie.TheatersFragment
  * 描述：    电影 Fragment
  */
 class MovieFragment : BaseFragment() {
+
+    companion object {
+        // 正在热映
+        val InTheatersMovies = 1
+        // 即将上映
+        val ComingSoonMovies = 2
+        // Top250
+        val Top250Movies = 3
+    }
+
     override fun getLayoutResId(): Int {
         return R.layout.frag_movie_main
     }
@@ -24,7 +32,6 @@ class MovieFragment : BaseFragment() {
         val tabAdapter = MovieTabAdapter(childFragmentManager, getTabData(), getTabTitle())
         vpMovie.adapter = tabAdapter
         tabLayout.setupWithViewPager(vpMovie)
-        tabLayout.tabMode = MODE_SCROLLABLE
     }
 
     private fun getTabTitle(): ArrayList<String> {
@@ -33,9 +40,6 @@ class MovieFragment : BaseFragment() {
         titles.add("正在热映")
         titles.add("即将上映")
         titles.add("Top250")
-        titles.add("口碑榜")
-        titles.add("北美票房榜")
-        titles.add("新片榜")
         return titles
     }
 
@@ -43,13 +47,9 @@ class MovieFragment : BaseFragment() {
 
         val fragments = arrayListOf<BaseFragment>()
 
-        fragments.add(TheatersFragment())
-        fragments.add(TheatersFragment())
-        fragments.add(TheatersFragment())
-        fragments.add(TheatersFragment())
-        fragments.add(TheatersFragment())
-        fragments.add(TheatersFragment())
-
+        fragments.add(CategoryFragment.newInstance(InTheatersMovies))
+        fragments.add(CategoryFragment.newInstance(ComingSoonMovies))
+        fragments.add(CategoryFragment.newInstance(Top250Movies))
         return fragments
     }
 }

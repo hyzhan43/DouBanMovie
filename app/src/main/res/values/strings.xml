@@ -5,4 +5,12 @@
     <string name="book">图书</string>
     <string name="navigation_drawer_open">菜单打开</string>
     <string name="navigation_drawer_close">菜单关闭</string>
+    <string name="cinema_score">评分:</string>
+    <string name="love_count">%d 人喜欢</string>
+    <string name="comment_count">%d 条评论</string>
+    <string name="score">评分：%f</string>
+    <string name="directors">导演：%s</string>
+    <string name="casts">影人：%s</string>
+    <string name="genres">类型：%s</string>
+    <string name="summary">剧情简介</string>
 </resources>

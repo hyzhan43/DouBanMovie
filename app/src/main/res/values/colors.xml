@@ -11,4 +11,9 @@
     <color name="fragment_background">#F3F3F3</color>
     <!--tab 未选中标题颜色  (淡灰)-->
     <color name="color_translucent_white">#88FFFFFF</color>
+
+    <color name="grey_200">#eeeeee</color>
+
+    <color name="grey_666">#666</color>
+    <color name="grey_777">#777777</color>
 </resources>

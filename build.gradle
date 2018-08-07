@@ -8,6 +8,8 @@ buildscript {
     ext.rx_android_version = '1.2.1'
     ext.ok_http_version = '3.4.1'
     ext.retrofit_version = '2.1.0'
+    ext.glide_version = '3.7.0'
+    ext.screen_version = '1.1.1'
 
 
     repositories {
