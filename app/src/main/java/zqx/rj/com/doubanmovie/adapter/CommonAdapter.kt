@@ -74,6 +74,13 @@ abstract class CommonAdapter<Data>(var mData: ArrayList<Data> = ArrayList(), var
         }
     }
 
+    fun add(dataList: ArrayList<Data>?){
+        if (dataList != null) {
+            mData.addAll(dataList)
+            notifyDataSetChanged()
+        }
+    }
+
     fun setListener(listener: AdapterListener<Data>) {
         this.mListener = listener
     }

@@ -10,6 +10,9 @@ buildscript {
     ext.retrofit_version = '2.1.0'
     ext.glide_version = '3.7.0'
     ext.screen_version = '1.1.1'
+    ext.transformations_version = '2.0.1'
+    ext.photo_version = '1.3.0'
+    ext.refresh_version = '1.1.0-alpha-14'
 
 
     repositories {

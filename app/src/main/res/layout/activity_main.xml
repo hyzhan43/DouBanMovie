@@ -2,10 +2,10 @@
 <android.support.v4.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/drawerMain"
+    android:id="@+id/mDrawerMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <LinearLayout
@@ -22,7 +22,7 @@
     </LinearLayout>
 
     <android.support.design.widget.NavigationView
-        android:id="@+id/navigationMain"
+        android:id="@+id/mNavigationMain"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"

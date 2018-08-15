@@ -8,13 +8,13 @@
                 android:id="@+id/nav_menu_movie"
                 android:checkable="true"
                 android:checked="true"
-                android:icon="@drawable/dianying"
+                android:icon="@drawable/ic_movie"
                 android:title="@string/movie" />
 
             <item
                 android:id="@+id/nav_menu_book"
                 android:checkable="true"
-                android:icon="@drawable/dianying"
+                android:icon="@drawable/ic_book"
                 android:title="@string/book" />
         </menu>
     </item>

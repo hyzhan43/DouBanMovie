@@ -1,4 +1,4 @@
-package zqx.rj.com.doubanmovie.bean
+package zqx.rj.com.doubanmovie.bean.movies
 
 /**
  * 项目名：  DouBanMovie

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/mIvCast"
+        android:layout_width="60dp"
+        android:layout_height="80dp" />
+
+    <TextView
+        android:id="@+id/mTvName"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textColor="@color/grey_777"
+        android:textSize="12dp" />
+</LinearLayout>

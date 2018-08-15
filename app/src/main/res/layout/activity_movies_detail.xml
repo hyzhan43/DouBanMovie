@@ -18,8 +18,7 @@
                 android:id="@+id/mIvBgPoster"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                android:src="@drawable/bg_src_morning" />
+                android:scaleType="fitXY" />
 
             <TextView
                 android:id="@+id/mTvMovieName"
@@ -72,8 +71,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginBottom="20dp"
-                android:layout_marginEnd="20dp"
-                android:src="@drawable/default_portrait" />
+                android:layout_marginEnd="20dp" />
         </RelativeLayout>
 
         <LinearLayout
@@ -163,6 +161,7 @@
                 android:text="@string/casts" />
 
             <android.support.v7.widget.RecyclerView
+                android:id="@+id/mCastsRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp" />

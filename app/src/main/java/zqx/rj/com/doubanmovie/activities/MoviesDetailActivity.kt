@@ -1,17 +1,23 @@
 package zqx.rj.com.doubanmovie.activities
 
 import android.annotation.SuppressLint
+import android.support.v7.widget.LinearLayoutManager
+import android.view.Gravity
+import android.widget.LinearLayout
 import com.bumptech.glide.Glide
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.activity_movies_detail.*
+import kotlinx.android.synthetic.main.poster_item.*
 import zqx.rj.com.baselibrary.base.BaseActivity
 import zqx.rj.com.baselibrary.base.BaseSubscriber
 import zqx.rj.com.baselibrary.common.execute
 import zqx.rj.com.baselibrary.common.net.RetrofitFactory
 import zqx.rj.com.doubanmovie.R
+import zqx.rj.com.doubanmovie.adapter.CastsAdapter
 import zqx.rj.com.doubanmovie.api.ApiService
-import zqx.rj.com.doubanmovie.bean.MovieDetailData
-import zqx.rj.com.doubanmovie.bean.MoviePerson
+import zqx.rj.com.doubanmovie.bean.movies.MovieDetailData
+import zqx.rj.com.doubanmovie.bean.movies.MoviePerson
+import zqx.rj.com.doubanmovie.view.CustomDialog
 
 class MoviesDetailActivity : BaseActivity() {
 
@@ -37,7 +43,7 @@ class MoviesDetailActivity : BaseActivity() {
         Glide.with(this)
                 .load(t.images.large)
                 .centerCrop()
-                // “14”：设置模糊度(在0.0到25.0之间)，默认”25";"3":图片缩放比例,默认“1”。
+                // “15”：设置模糊度(在0.0到25.0之间)，默认”25";"3":图片缩放比例,默认“1”。
                 .bitmapTransform(BlurTransformation(this, 15, 3))
                 .placeholder(R.color.grey_200)
                 .into(mIvBgPoster)
@@ -53,6 +59,10 @@ class MoviesDetailActivity : BaseActivity() {
                 .centerCrop()
                 .placeholder(R.color.grey_200)
                 .into(mIvPoster)
+        mIvPoster.setOnClickListener {
+            initDialog(t.images.large)
+        }
+
 
         mTvScore.text = String.format(mTvScore.text as String, t.rating.average)
 
@@ -60,12 +70,66 @@ class MoviesDetailActivity : BaseActivity() {
         mTvDirectors.text = String.format(mTvDirectors.text as String, directors)
 
         val casts = getCasts(t.casts)
-        mTvCasts.text = String.format(mTvCasts.text as String, casts)
+        mTvCasts.text = "${mTvCasts.text}: $casts"
 
         val genres = getGenres(t.genres)
         mTvGenres.text = String.format(mTvGenres.text as String, genres)
 
-        mTvSummary.text = t.summary
+        // 　\u3000\u3000  首行缩进
+        mTvSummary.text = "\u3000\u3000 ${t.summary}"
+
+
+        // 设置影人
+        initCasts(t.casts)
+    }
+
+    private fun initDialog(imageUrl: String) {
+//        val dialog = Dialog(this)
+//
+//        dialog.setContentView(R.layout.poster_item)
+//        // 电影海报
+//        Glide.with(this)
+//                .load(imageUrl)
+//                .placeholder(R.color.grey_200)
+//                .into(dialog.mIvPosterBig)
+//
+//        // 需要缩放的控件
+//        PhotoViewAttacher(dialog.mIvPosterBig).update()
+//
+//        dialog.show()
+
+        // 初始化提示框
+        val dialog = CustomDialog(this,
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                R.layout.poster_item,
+                R.style.Theme_dialog,
+                Gravity.CENTER,
+                R.style.pop_anim_style)
+
+        // 解析图片
+        Glide.with(this)
+                .load(imageUrl)
+                .placeholder(R.color.grey_200)
+                .into(dialog.mIvPosterBig)
+
+        dialog.setCanceledOnTouchOutside(true)
+        // 需要缩放的控件
+//        val mAttacher = PhotoViewAttacher(dialog.mIvPosterBig)
+//        // 刷新
+//        mAttacher.update()
+        dialog.show()
+    }
+
+    private fun initCasts(casts: ArrayList<MoviePerson>) {
+
+        val horizontalLayout = LinearLayoutManager(this)
+        horizontalLayout.orientation = LinearLayoutManager.HORIZONTAL
+        mCastsRecyclerView.layoutManager = horizontalLayout
+
+        val adapter = CastsAdapter()
+        mCastsRecyclerView.adapter = adapter
+        adapter.replace(casts)
     }
 
     private fun getGenres(genresList: ArrayList<String>): String {

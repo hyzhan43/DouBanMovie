@@ -30,8 +30,8 @@ class MovieFragment : BaseFragment() {
 
     override fun initView() {
         val tabAdapter = MovieTabAdapter(childFragmentManager, getTabData(), getTabTitle())
-        vpMovie.adapter = tabAdapter
-        tabLayout.setupWithViewPager(vpMovie)
+        mVpMovie.adapter = tabAdapter
+        mTabLayout.setupWithViewPager(mVpMovie)
     }
 
     private fun getTabTitle(): ArrayList<String> {

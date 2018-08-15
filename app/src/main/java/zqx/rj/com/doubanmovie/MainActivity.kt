@@ -1,14 +1,21 @@
 package zqx.rj.com.doubanmovie
 
 import android.support.design.widget.NavigationView
+import android.support.v4.app.FragmentTransaction
+import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.layout_toolbar.*
 import zqx.rj.com.baselibrary.base.BaseActivity
+import zqx.rj.com.baselibrary.base.BaseFragment
+import zqx.rj.com.doubanmovie.fragment.book.BookFragment
 import zqx.rj.com.doubanmovie.fragment.movie.MovieFragment
 
 class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    private var mMovieFragment: BaseFragment? = null
+    private var mBookFragment: BaseFragment? = null
 
     override fun getContentViewResId(): Int {
         return R.layout.activity_main
@@ -19,27 +26,36 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
         //导航按钮有旋转特效
         val toggle = ActionBarDrawerToggle(
-                this, drawerMain, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
-        drawerMain.addDrawerListener(toggle)
+                this, mDrawerMain, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+        mDrawerMain.addDrawerListener(toggle)
         toggle.syncState()
 
-        navigationMain.setCheckedItem(R.id.nav_menu_movie)
-        navigationMain.setNavigationItemSelectedListener(this)
+        mNavigationMain.setCheckedItem(R.id.nav_menu_movie)
+        mNavigationMain.setNavigationItemSelectedListener(this)
 
         showMovie()
     }
 
-    fun showMovie(){
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            //这个是HomeAsUp按钮的id永远都是android.R.id.home
+            android.R.id.home -> mDrawerMain.openDrawer(GravityCompat.START)   //将滑动菜单显示出来
+        }
+        return true
+    }
+
+    fun showMovie() {
         val supportFragmentManager = supportFragmentManager
         val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.add(R.id.fl_main_content, MovieFragment())
+        mMovieFragment = MovieFragment()
+        fragmentTransaction.add(R.id.fl_main_content, mMovieFragment)
         fragmentTransaction.commit()
     }
 
     /**
      *  设置 toolbar 标题
      */
-    fun setToolBar(title: String){
+    fun setToolBar(title: String) {
         toolbar.title = title
         setSupportActionBar(toolbar)
         val supportActionBar = supportActionBar
@@ -52,7 +68,38 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        hideAllFragments(fragmentTransaction)
+        when (item.itemId) {
 
+            R.id.nav_menu_movie -> {
+                setToolBar(resources.getString(R.string.movie))
+                mMovieFragment?.let {
+                    fragmentTransaction.show(it)
+                } ?: MovieFragment().let {
+                    mMovieFragment = it
+                    fragmentTransaction.add(R.id.fl_main_content, mMovieFragment)
+                }
+            }
+
+            R.id.nav_menu_book -> {
+                setToolBar(resources.getString(R.string.book))
+                if (mBookFragment == null) {
+                    mBookFragment = BookFragment()
+                    fragmentTransaction.add(R.id.fl_main_content, mBookFragment)
+                } else {
+                    fragmentTransaction.show(mBookFragment)
+                }
+            }
+        }
+
+        fragmentTransaction.commit()
+        mDrawerMain.closeDrawers()
         return true
+    }
+
+    private fun hideAllFragments(fragmentTransaction: FragmentTransaction) {
+        mMovieFragment?.let { fragmentTransaction.hide(it) }
+        mBookFragment?.let { fragmentTransaction.hide(it) }
     }
 }

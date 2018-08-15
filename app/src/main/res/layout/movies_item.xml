@@ -19,13 +19,12 @@
             android:padding="10dp">
 
             <ImageView
-                android:id="@+id/moviePoster"
+                android:id="@+id/mMoviePoster"
                 android:layout_width="100dp"
-                android:layout_height="110dp"
-                android:src="@drawable/test" />
+                android:layout_height="110dp" />
 
             <TextView
-                android:id="@+id/movieAverage"
+                android:id="@+id/mMovieAverage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
@@ -34,7 +33,7 @@
                 android:textSize="10dp" />
 
             <TextView
-                android:id="@+id/movieName"
+                android:id="@+id/mMovieName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"

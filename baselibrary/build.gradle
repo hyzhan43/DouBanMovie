@@ -48,7 +48,9 @@ dependencies {
     // Glide
     compile "com.github.bumptech.glide:glide:$glide_version"
     // 高斯模糊
-    compile 'jp.wasabeef:glide-transformations:2.0.1'
+    compile "jp.wasabeef:glide-transformations:$transformations_version"
+    // 图片缩放库
+    compile "com.github.chrisbanes:PhotoView:$photo_version"
 
     // RxKotlin and RxAndroid
     compile "io.reactivex:rxkotlin:$rx_kotlin_version"
@@ -62,4 +64,6 @@ dependencies {
 
     // 屏幕适配
     compile "me.yatoooon:screenadaptation:$screen_version"
+
+    compile "com.scwang.smartrefresh:SmartRefreshLayout:${refresh_version}"
 }

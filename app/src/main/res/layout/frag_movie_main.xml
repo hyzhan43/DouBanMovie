@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <android.support.design.widget.TabLayout
-        android:id="@+id/tabLayout"
+        android:id="@+id/mTabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tabBackground="@color/colorPrimary"
@@ -16,7 +16,7 @@
         app:tabTextColor="@color/color_translucent_white" />
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/vpMovie"
+        android:id="@+id/mVpMovie"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />

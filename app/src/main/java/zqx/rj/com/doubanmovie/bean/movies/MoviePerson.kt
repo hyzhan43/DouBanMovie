@@ -1,4 +1,4 @@
-package zqx.rj.com.doubanmovie.bean
+package zqx.rj.com.doubanmovie.bean.movies
 
 /**
  * 项目名：  DouBanMovie
@@ -8,5 +8,4 @@ package zqx.rj.com.doubanmovie.bean
  * 创建时间：2018/8/7 2:34
  * 描述：    TODO
  */
-class MoviePerson(var name: String) {
-}
+class MoviePerson(var name: String, var avatars: MovieImages)

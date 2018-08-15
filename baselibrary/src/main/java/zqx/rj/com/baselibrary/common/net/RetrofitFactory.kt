@@ -23,6 +23,7 @@ class RetrofitFactory private constructor() {
         val instance: RetrofitFactory by lazy {
             RetrofitFactory()
         }
+
     }
 
     init {
@@ -44,6 +45,7 @@ class RetrofitFactory private constructor() {
                 .readTimeout(10, TimeUnit.SECONDS)
                 .build()
     }
+
 
 
 }

@@ -8,9 +8,14 @@
     <string name="cinema_score">评分:</string>
     <string name="love_count">%d 人喜欢</string>
     <string name="comment_count">%d 条评论</string>
-    <string name="score">评分：%f</string>
+    <string name="score">评分：%.1f</string>
     <string name="directors">导演：%s</string>
-    <string name="casts">影人：%s</string>
+    <string name="casts">影人</string>
     <string name="genres">类型：%s</string>
     <string name="summary">剧情简介</string>
+    <string name="input_book_tips">请输入搜索的图书</string>
+    <string name="check">查询</string>
+    <string name="book_price">￥%.2f</string>
+    <string name="search_error">没有相关结果，请输入合法的关键词~</string>
+    <string name="author">ZQX</string>
 </resources>

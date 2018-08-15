@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="180dp"
-    android:background="@drawable/bg_src_morning"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/drawer_bg">
 
     <!--drawer 的header-->
 
@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="@string/app_name"
+        android:text="@string/author"
         android:textColor="@color/white" />
 
 </RelativeLayout>
