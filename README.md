@@ -21,9 +21,9 @@ App 数据采用 豆瓣 api  （如果不小心侵权了,sorry,联系我,我把�
  - [Glide](https://github.com/bumptech/glide)
  - [RxKotlin](https://github.com/ReactiveX/RxKotlin)
  - [RxAndroid](https://github.com/ReactiveX/RxAndroid)
- - [Retrofit](https://github.com/square/retrofit) (网络请求框架)
+ - [Retrofit](https://github.com/square/retrofit) 
  - [AndroidScreenAdaptation](https://github.com/yatoooon/AndroidScreenAdaptation)  (屏幕适配)
- - [SmartRefreshLayout](SmartRefreshLayout) (下拉刷新、上拉加载)
+ - [SmartRefreshLayout](SmartRefreshLayout) 
 
 
 
