@@ -1,4 +1,4 @@
-package zqx.rj.com.doubanmovie
+package zqx.rj.com.doubanmovie.activities
 
 import android.support.design.widget.NavigationView
 import android.support.v4.app.FragmentTransaction
@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.layout_toolbar.*
 import zqx.rj.com.baselibrary.base.BaseActivity
 import zqx.rj.com.baselibrary.base.BaseFragment
+import zqx.rj.com.doubanmovie.R
 import zqx.rj.com.doubanmovie.fragment.book.BookFragment
 import zqx.rj.com.doubanmovie.fragment.movie.MovieFragment
 
@@ -22,7 +23,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     }
 
     override fun initView() {
-        setToolBar(resources.getString(R.string.movie))
+        setToolBar(toolbar, resources.getString(R.string.movie))
 
         //导航按钮有旋转特效
         val toggle = ActionBarDrawerToggle(
@@ -39,6 +40,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             //这个是HomeAsUp按钮的id永远都是android.R.id.home
+            // 复写父类
             android.R.id.home -> mDrawerMain.openDrawer(GravityCompat.START)   //将滑动菜单显示出来
         }
         return true
@@ -52,19 +54,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         fragmentTransaction.commit()
     }
 
-    /**
-     *  设置 toolbar 标题
-     */
-    fun setToolBar(title: String) {
-        toolbar.title = title
-        setSupportActionBar(toolbar)
-        val supportActionBar = supportActionBar
-
-        supportActionBar?.let {
-            it.setDisplayHomeAsUpEnabled(true)
-            it.setDisplayShowHomeEnabled(true)
-        }
-    }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
@@ -73,7 +62,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         when (item.itemId) {
 
             R.id.nav_menu_movie -> {
-                setToolBar(resources.getString(R.string.movie))
+                setToolBar(toolbar, resources.getString(R.string.movie))
                 mMovieFragment?.let {
                     fragmentTransaction.show(it)
                 } ?: MovieFragment().let {
@@ -83,7 +72,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             }
 
             R.id.nav_menu_book -> {
-                setToolBar(resources.getString(R.string.book))
+                setToolBar(toolbar, resources.getString(R.string.book))
                 if (mBookFragment == null) {
                     mBookFragment = BookFragment()
                     fragmentTransaction.add(R.id.fl_main_content, mBookFragment)

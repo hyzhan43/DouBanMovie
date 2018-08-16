@@ -2,12 +2,10 @@ package zqx.rj.com.doubanmovie.activities
 
 import android.annotation.SuppressLint
 import android.support.v7.widget.LinearLayoutManager
-import android.view.Gravity
-import android.widget.LinearLayout
 import com.bumptech.glide.Glide
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.activity_movies_detail.*
-import kotlinx.android.synthetic.main.poster_item.*
+import kotlinx.android.synthetic.main.layout_toolbar.*
 import zqx.rj.com.baselibrary.base.BaseActivity
 import zqx.rj.com.baselibrary.base.BaseSubscriber
 import zqx.rj.com.baselibrary.common.execute
@@ -17,9 +15,8 @@ import zqx.rj.com.doubanmovie.adapter.CastsAdapter
 import zqx.rj.com.doubanmovie.api.ApiService
 import zqx.rj.com.doubanmovie.bean.movies.MovieDetailData
 import zqx.rj.com.doubanmovie.bean.movies.MoviePerson
-import zqx.rj.com.doubanmovie.view.CustomDialog
 
-class MoviesDetailActivity : BaseActivity() {
+class MovieDetailActivity : BaseActivity() {
 
     override fun getContentViewResId(): Int {
         return R.layout.activity_movies_detail
@@ -38,6 +35,8 @@ class MoviesDetailActivity : BaseActivity() {
 
     @SuppressLint("SetTextI18n")
     private fun setData(t: MovieDetailData) {
+
+        setToolBar(toolbar, "")
 
         // 背景
         Glide.with(this)
@@ -59,9 +58,6 @@ class MoviesDetailActivity : BaseActivity() {
                 .centerCrop()
                 .placeholder(R.color.grey_200)
                 .into(mIvPoster)
-        mIvPoster.setOnClickListener {
-            initDialog(t.images.large)
-        }
 
 
         mTvScore.text = String.format(mTvScore.text as String, t.rating.average)
@@ -81,44 +77,6 @@ class MoviesDetailActivity : BaseActivity() {
 
         // 设置影人
         initCasts(t.casts)
-    }
-
-    private fun initDialog(imageUrl: String) {
-//        val dialog = Dialog(this)
-//
-//        dialog.setContentView(R.layout.poster_item)
-//        // 电影海报
-//        Glide.with(this)
-//                .load(imageUrl)
-//                .placeholder(R.color.grey_200)
-//                .into(dialog.mIvPosterBig)
-//
-//        // 需要缩放的控件
-//        PhotoViewAttacher(dialog.mIvPosterBig).update()
-//
-//        dialog.show()
-
-        // 初始化提示框
-        val dialog = CustomDialog(this,
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                R.layout.poster_item,
-                R.style.Theme_dialog,
-                Gravity.CENTER,
-                R.style.pop_anim_style)
-
-        // 解析图片
-        Glide.with(this)
-                .load(imageUrl)
-                .placeholder(R.color.grey_200)
-                .into(dialog.mIvPosterBig)
-
-        dialog.setCanceledOnTouchOutside(true)
-        // 需要缩放的控件
-//        val mAttacher = PhotoViewAttacher(dialog.mIvPosterBig)
-//        // 刷新
-//        mAttacher.update()
-        dialog.show()
     }
 
     private fun initCasts(casts: ArrayList<MoviePerson>) {

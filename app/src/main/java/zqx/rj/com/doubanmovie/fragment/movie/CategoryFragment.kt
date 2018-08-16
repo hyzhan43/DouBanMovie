@@ -9,7 +9,7 @@ import zqx.rj.com.baselibrary.base.BaseSubscriber
 import zqx.rj.com.baselibrary.common.execute
 import zqx.rj.com.baselibrary.common.net.RetrofitFactory
 import zqx.rj.com.doubanmovie.R
-import zqx.rj.com.doubanmovie.activities.MoviesDetailActivity
+import zqx.rj.com.doubanmovie.activities.MovieDetailActivity
 import zqx.rj.com.doubanmovie.adapter.CommonAdapter
 import zqx.rj.com.doubanmovie.adapter.MoviesAdapter
 import zqx.rj.com.doubanmovie.api.ApiService
@@ -49,8 +49,7 @@ class CategoryFragment : BaseFragment() {
         mMovieRecyclerView.adapter = adapter
         adapter.setListener(object : CommonAdapter.AdapterListener<Movie> {
             override fun onItemClick(holder: CommonAdapter.ViewHolder<Movie>, data: Movie) {
-//                toast(data.id)
-                startActivity<MoviesDetailActivity>("id" to data.id)
+                startActivity<MovieDetailActivity>("id" to data.id)
             }
         })
 

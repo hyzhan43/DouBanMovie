@@ -7,12 +7,12 @@
     <application
         android:name="zqx.rj.com.baselibrary.base.BaseApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,7 +33,8 @@
             android:name="unit"
             android:value="dp" />
 
-        <activity android:name=".activities.MoviesDetailActivity"></activity>
+        <activity android:name=".activities.MovieDetailActivity" />
+        <activity android:name=".activities.BookDetailActivity"></activity>
     </application>
 
 </manifest>

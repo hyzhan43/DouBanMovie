@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--侧滑菜单-->
-    <item android:title="分类">
+    <item android:title="@string/category">
         <menu>
             <item
                 android:id="@+id/nav_menu_movie"
@@ -18,4 +18,6 @@
                 android:title="@string/book" />
         </menu>
     </item>
+
+
 </menu>
