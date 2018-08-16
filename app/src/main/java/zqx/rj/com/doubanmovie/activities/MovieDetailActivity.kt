@@ -5,6 +5,7 @@ import android.support.v7.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.activity_movies_detail.*
+import kotlinx.android.synthetic.main.books_item.*
 import kotlinx.android.synthetic.main.layout_toolbar.*
 import zqx.rj.com.baselibrary.base.BaseActivity
 import zqx.rj.com.baselibrary.base.BaseSubscriber
@@ -47,6 +48,7 @@ class MovieDetailActivity : BaseActivity() {
                 .placeholder(R.color.grey_200)
                 .into(mIvBgPoster)
 
+        mTvMovieName.text = t.title
         mTvCountries.text = "${t.countries} · ${t.year}"
 
         mTvLove.text = String.format(mTvLove.text as String, t.wish_count)
@@ -57,7 +59,7 @@ class MovieDetailActivity : BaseActivity() {
                 .load(t.images.large)
                 .centerCrop()
                 .placeholder(R.color.grey_200)
-                .into(mIvPoster)
+                .into(mIvMoviePoster)
 
 
         mTvScore.text = String.format(mTvScore.text as String, t.rating.average)

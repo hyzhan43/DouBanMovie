@@ -68,7 +68,7 @@
                 android:textSize="10dp" />
 
             <ImageView
-                android:id="@+id/mIvPoster"
+                android:id="@+id/mIvMoviePoster"
                 android:layout_width="100dp"
                 android:layout_height="140dp"
                 android:layout_alignParentBottom="true"

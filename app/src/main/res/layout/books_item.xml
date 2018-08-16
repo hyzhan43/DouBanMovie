@@ -20,7 +20,7 @@
 
 
             <ImageView
-                android:id="@+id/mIvPoster"
+                android:id="@+id/mIvBookPoster"
                 android:layout_width="80dp"
                 android:layout_height="100dp"
                 android:src="@mipmap/ic_launcher" />

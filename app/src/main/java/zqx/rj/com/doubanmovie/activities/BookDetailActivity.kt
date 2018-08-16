@@ -24,7 +24,7 @@ class BookDetailActivity : BaseActivity() {
         Glide.with(this)
                 .load(data.image)
                 .centerCrop()
-                .into(mIvPoster)
+                .into(mIvBookBigPoster)
 
         mTvName.text = data.title
         mTvAuthor.text = getAuthors(data.author)

@@ -27,7 +27,7 @@ class BookAdapter : CommonAdapter<Book>() {
 
         val context = root.context
 
-        val image = root.mIvPoster
+        val image = root.mIvBookPoster
         val title = root.mTvTitle
         val stitle = root.mTvSTitle
         val price = root.mTvPrice
