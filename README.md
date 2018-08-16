@@ -11,7 +11,7 @@ App 数据采用 豆瓣 api  （如果不小心侵权了,sorry,联系我,我把�
 
 ## App 展示
 
-
+![image](https://github.com/hyzhan43/DouBanMovie/blob/master/App.gif)
 
 ## API
 [豆瓣提供](https://developers.douban.com/wiki/?title=api_v2)
