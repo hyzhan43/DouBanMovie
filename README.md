@@ -11,7 +11,6 @@ App 数据采用 豆瓣 api  （如果不小心侵权了,sorry,联系我,我把�
 
 ## App 展示
 
-![img](https://img-blog.csdn.net/20180817031228247?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MDU5NTUxNg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
 
 ## API
