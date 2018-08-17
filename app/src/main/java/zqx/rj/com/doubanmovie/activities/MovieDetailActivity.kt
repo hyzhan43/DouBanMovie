@@ -5,7 +5,6 @@ import android.support.v7.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.activity_movies_detail.*
-import kotlinx.android.synthetic.main.books_item.*
 import kotlinx.android.synthetic.main.layout_toolbar.*
 import zqx.rj.com.baselibrary.base.BaseActivity
 import zqx.rj.com.baselibrary.base.BaseSubscriber
@@ -25,6 +24,7 @@ class MovieDetailActivity : BaseActivity() {
 
     override fun initData() {
 
+        // 获取 豆瓣 电影信息
         RetrofitFactory.instance.create(ApiService::class.java)
                 .getMoviesDetail(intent.getStringExtra("id"))
                 .execute(object : BaseSubscriber<MovieDetailData>() {
@@ -117,6 +117,5 @@ class MovieDetailActivity : BaseActivity() {
         }
         return directors.substring(1, directors.length)
     }
-
 
 }

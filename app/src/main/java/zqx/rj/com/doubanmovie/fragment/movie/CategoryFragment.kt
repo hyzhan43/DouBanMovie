@@ -1,6 +1,7 @@
 package zqx.rj.com.doubanmovie.fragment.movie
 
 import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.RecyclerView
 import kotlinx.android.synthetic.main.frag_movie_category.*
 import org.jetbrains.anko.support.v4.startActivity
 import rx.Observable

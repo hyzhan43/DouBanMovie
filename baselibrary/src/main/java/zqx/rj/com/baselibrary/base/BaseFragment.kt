@@ -14,14 +14,12 @@ import com.yatoooon.screenadaptation.ScreenAdapterTools
  * 文件名：  BaseFragment
  * 创建者：  ZQX
  * 创建时间：2018/8/2 19:50
- * 描述：    TODO
+ * 描述：    Fragment 基类
  */
 abstract class BaseFragment: Fragment() {
 
     protected var mView: View? = null
     protected var mContext: Context? = null
-    protected var isInit: Boolean = false
-    protected var isLoad: Boolean = false
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
@@ -31,6 +29,7 @@ abstract class BaseFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         mView = inflater?.inflate(getLayoutResId(), container, false)
+        // 屏幕适配
         ScreenAdapterTools.getInstance().loadView(mView)
         return mView
     }
@@ -38,7 +37,6 @@ abstract class BaseFragment: Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        isInit = true
         initView()
         initData()
     }

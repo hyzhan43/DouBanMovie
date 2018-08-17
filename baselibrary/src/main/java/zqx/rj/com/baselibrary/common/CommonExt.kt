@@ -16,7 +16,8 @@ import zqx.rj.com.baselibrary.base.BaseSubscriber
 
 fun <T> Observable<T>.execute(subscriber: BaseSubscriber<T>){
 
+    // 指定 Subscriber 的回调发生在主线程
     this.observeOn(AndroidSchedulers.mainThread())
-            .subscribeOn(Schedulers.io())
+            .subscribeOn(Schedulers.io())   // 指定 subscribe() 发生在 IO 线程
             .subscribe(subscriber)
 }

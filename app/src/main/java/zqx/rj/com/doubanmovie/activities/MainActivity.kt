@@ -13,6 +13,7 @@ import zqx.rj.com.doubanmovie.R
 import zqx.rj.com.doubanmovie.fragment.book.BookFragment
 import zqx.rj.com.doubanmovie.fragment.movie.MovieFragment
 
+
 class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private var mMovieFragment: BaseFragment? = null
@@ -40,13 +41,17 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             //这个是HomeAsUp按钮的id永远都是android.R.id.home
-            // 复写父类
+            // 复写父类 (父类是 点击关闭)
             android.R.id.home -> mDrawerMain.openDrawer(GravityCompat.START)   //将滑动菜单显示出来
         }
         return true
     }
 
-    fun showMovie() {
+    /**
+     *  显示默认页面
+     */
+    private fun showMovie() {
+
         val supportFragmentManager = supportFragmentManager
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         mMovieFragment = MovieFragment()
@@ -63,6 +68,8 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
             R.id.nav_menu_movie -> {
                 setToolBar(toolbar, resources.getString(R.string.movie))
+
+                // 如果为 空则 new  并添加到 R.id.fl_main_content 否则显示
                 mMovieFragment?.let {
                     fragmentTransaction.show(it)
                 } ?: MovieFragment().let {
@@ -73,6 +80,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
             R.id.nav_menu_book -> {
                 setToolBar(toolbar, resources.getString(R.string.book))
+                // 另一种写法
                 if (mBookFragment == null) {
                     mBookFragment = BookFragment()
                     fragmentTransaction.add(R.id.fl_main_content, mBookFragment)
@@ -87,6 +95,9 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         return true
     }
 
+    /**
+     *  隐藏全部 Fragment
+     */
     private fun hideAllFragments(fragmentTransaction: FragmentTransaction) {
         mMovieFragment?.let { fragmentTransaction.hide(it) }
         mBookFragment?.let { fragmentTransaction.hide(it) }

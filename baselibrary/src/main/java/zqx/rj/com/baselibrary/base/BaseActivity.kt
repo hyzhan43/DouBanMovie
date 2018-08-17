@@ -4,7 +4,6 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
-import android.util.Log
 import android.view.MenuItem
 import com.yatoooon.screenadaptation.ScreenAdapterTools
 
@@ -14,7 +13,7 @@ import com.yatoooon.screenadaptation.ScreenAdapterTools
  * 文件名：  BaseActivity
  * 创建者：  ZQX
  * 创建时间：2018/8/2 19:46
- * 描述：    所有 Activity 的父类
+ * 描述：   Activity 基类
  */
 abstract class BaseActivity : AppCompatActivity() {
 
@@ -24,9 +23,11 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(getContentViewResId())
-        ScreenAdapterTools.getInstance().loadView(window.decorView);
+
+        // 屏幕适配
+        ScreenAdapterTools.getInstance().loadView(window.decorView)
+
         mContext = this
-        initIntentData()
         initView()
         initData()
     }
@@ -47,13 +48,13 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            // 设置 默认 返回时  关闭页面
             android.R.id.home -> finish()
         }
         return true
     }
 
     abstract fun getContentViewResId(): Int
-    open fun initIntentData() {}
     open fun initView() {}
     open fun initData() {}
 }

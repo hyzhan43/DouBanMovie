@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit
  * 文件名：  RetrofitFactory
  * 创建者：  ZQX
  * 创建时间：2018/8/2 23:56
- * 描述：    TODO
+ * 描述：    Retrofit 封装
  */
 class RetrofitFactory private constructor() {
 
@@ -23,7 +23,6 @@ class RetrofitFactory private constructor() {
         val instance: RetrofitFactory by lazy {
             RetrofitFactory()
         }
-
     }
 
     init {
@@ -45,7 +44,5 @@ class RetrofitFactory private constructor() {
                 .readTimeout(10, TimeUnit.SECONDS)
                 .build()
     }
-
-
 
 }

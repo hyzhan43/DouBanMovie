@@ -1,9 +1,6 @@
 package zqx.rj.com.doubanmovie.fragment.book
 
-import android.content.Intent
 import android.support.v7.widget.LinearLayoutManager
-import com.scwang.smartrefresh.layout.api.RefreshLayout
-import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener
 import kotlinx.android.synthetic.main.frag_book_main.*
 import org.jetbrains.anko.support.v4.startActivity
 import org.jetbrains.anko.support.v4.toast
@@ -51,13 +48,13 @@ class BookFragment : BaseFragment(), CommonAdapter.AdapterListener<Book> {
             mBtnCheck.isEnabled = false
         }
 
-        // 禁止刷新
+        // 禁止 上拉刷新
         mRefresh.setEnableRefresh(false)
         // 开启加载更多
         mRefresh.setEnableLoadMore(true)
 
         mRefresh.setOnLoadMoreListener {
-            //start = start + count
+            // 加载  0~count *2
             loadData(start, count * 2)
         }
     }

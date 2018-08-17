@@ -1,7 +1,6 @@
 package zqx.rj.com.doubanmovie.adapter
 
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,10 +17,6 @@ import zqx.rj.com.doubanmovie.R
 abstract class CommonAdapter<Data>(var mData: ArrayList<Data> = ArrayList(), var mListener: AdapterListener<Data>? = null) :
         RecyclerView.Adapter<CommonAdapter.ViewHolder<Data>>(), View.OnClickListener {
 
-    override fun getItemViewType(position: Int): Int {
-        return getItemLayoutId()
-    }
-
     // 返回布局文件
     abstract fun getItemLayoutId(): Int
 
@@ -32,7 +27,7 @@ abstract class CommonAdapter<Data>(var mData: ArrayList<Data> = ArrayList(), var
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder<Data> {
         val inflater = LayoutInflater.from(parent?.context)
 
-        val root: View = inflater.inflate(viewType, parent, false)
+        val root: View = inflater.inflate(getItemLayoutId(), parent, false)
         val holder: ViewHolder<Data> = onCreateViewHolder(root, viewType)
 
         root.setTag(R.id.tag_recycler_holder, holder)
@@ -57,6 +52,7 @@ abstract class CommonAdapter<Data>(var mData: ArrayList<Data> = ArrayList(), var
         val viewHolder: ViewHolder<Data> = v?.getTag(R.id.tag_recycler_holder) as ViewHolder<Data>
 
         mListener?.let {
+            // 获取 点击 position
             val pos = viewHolder.adapterPosition
             it.onItemClick(viewHolder, mData.get(pos))
         }
@@ -74,6 +70,9 @@ abstract class CommonAdapter<Data>(var mData: ArrayList<Data> = ArrayList(), var
         }
     }
 
+    /**
+     *  往集合追加 数据
+     */
     fun add(dataList: ArrayList<Data>?){
         if (dataList != null) {
             mData.addAll(dataList)

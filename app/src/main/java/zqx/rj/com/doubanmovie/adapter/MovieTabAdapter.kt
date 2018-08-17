@@ -11,10 +11,10 @@ import zqx.rj.com.baselibrary.base.BaseFragment
  * 文件名：  MovieTabAdapter
  * 创建者：  ZQX
  * 创建时间：2018/8/2 23:33
- * 描述：    TODO
+ * 描述：    TabLayout Adapter
  */
-class MovieTabAdapter(fm: FragmentManager, var fragmentList: ArrayList<BaseFragment>, var titleList: ArrayList<String>)
-    : FragmentPagerAdapter(fm) {
+class MovieTabAdapter(fm: FragmentManager, var fragmentList: ArrayList<BaseFragment>,
+                      var titleList: ArrayList<String>) : FragmentPagerAdapter(fm) {
 
 
     override fun getCount(): Int {

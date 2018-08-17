@@ -1,5 +1,6 @@
 package zqx.rj.com.doubanmovie.adapter
 
+import android.annotation.SuppressLint
 import android.view.View
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.movies_item.view.*
@@ -33,6 +34,7 @@ class MoviesAdapter : CommonAdapter<Movie>() {
         var prefix = root.resources.getString(R.string.cinema_score)
 
 
+        @SuppressLint("SetTextI18n")
         override fun onBind(data: Movie) {
 
             // 电影海报
